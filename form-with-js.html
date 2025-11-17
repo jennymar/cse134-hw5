@@ -97,9 +97,16 @@
   </style>
 </head>
 <body>
-    <div id="site-controls" style="display:none; margin-bottom:1rem;">
-        <button id="themeToggle" class="theme-toggle" aria-pressed="false">Dark</button>
+    <div id="theme-selector" style="margin-bottom: 1rem;">
+        <label for="themePick">Pick Theme and Colors:</label>
+        <select id="themePick">
+            <option value="Light">Light Mode</option>
+            <option value="Dark">Dark Mode</option>
+            <option value="Purple">Purple Mode</option>
+            <option value="Orange">Orange Mode</option>
+        </select>
     </div>
+
 
     <div id="vt-demo" style="margin:1rem 0;">
         <div style="display:flex; gap:0.5rem; align-items:center;">
@@ -170,33 +177,52 @@
     </noscript>
 
   <script>
-    const controls = document.getElementById('site-controls');
-    const themeToggle = document.getElementById('themeToggle');
-
-    function applyTheme(theme) {
-        if (theme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeToggle.textContent = 'Light';
-            themeToggle.setAttribute('aria-pressed', 'true');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            themeToggle.textContent = 'Dark';
-            themeToggle.setAttribute('aria-pressed', 'false');
+    const themes = {
+        Light: {
+            '--bg': '#f7f7f7',
+            '--card': '#ffffff',
+            '--text': '#111827',
+            '--font': 'sans-serif'
+        },
+        Dark: {
+            '--bg': '#0b1220',
+            '--card': '#071027',
+            '--text': '#e6eef8',
+            '--font': 'sans-serif'
+        },
+        Purple: {
+            '--bg': '#f3e8ff',        
+            '--card': '#d8b4fe',   
+            '--text': '#4c1d95', 
+            '--font': 'Georgia, serif'
+        },
+        Orange: {
+            '--bg': '#fff7ed',
+            '--card': '#fed7aa',
+            '--text': '#9a3412', 
+            '--font': 'Verdana, sans-serif'
         }
+    };
+
+    const themePick = document.getElementById('themePick');
+
+    function applyCustomTheme(themeName) {
+        const theme = themes[themeName];
+        if (!theme) return;
+
+        Object.keys(theme).forEach(variable => {
+            document.documentElement.style.setProperty(variable, theme[variable]);
+        });
+        localStorage.setItem('site-theme', themeName);
     }
 
-    if (controls && themeToggle) {
-        controls.style.display = ''; 
+    if (themePick) {
+        const savedTheme = localStorage.getItem('site-theme') || 'Light';
+        themePick.value = savedTheme;
+        applyCustomTheme(savedTheme);
 
-        const saved = localStorage.getItem('site-theme');
-        const defaultTheme = saved || 'light';
-        applyTheme(defaultTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-            const next = cur === 'dark' ? 'light' : 'dark';
-            applyTheme(next);
-            localStorage.setItem('site-theme', next);
+        themePick.addEventListener('change', () => {
+            applyCustomTheme(themePick.value);
         });
     }
 
