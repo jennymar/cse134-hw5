@@ -60,16 +60,16 @@ function loadLocal() {
     renderCards(data);
 }
 
-// ----- Load Remote Data from JSON Server or JSONBin -----
+
 async function loadRemote() {
     try {
-        // CHANGE THIS URL TO MATCH YOUR REMOTE ENDPOINT
-        const remoteURL = "https://my-json-server.typicode.com/USERNAME/REPO/experience";
+        const remoteURL = "https://my-json-server.typicode.com/jennymar/cse134-hw5/experience";
 
         const response = await fetch(remoteURL);
         if (!response.ok) throw new Error("Failed to fetch remote data.");
 
         const data = await response.json();
+        console.log("data", data);
         renderCards(data);
 
     } catch (error) {
