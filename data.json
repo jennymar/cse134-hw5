@@ -1,0 +1,92 @@
+[
+  {
+    "category": "industry",
+    "title": "ServiceNow",
+    "role": "Software Engineer Intern: Jun 2024 - Present",
+    "imgSmall": "assets/servicenow-small.JPG",
+    "imgLarge": "assets/servicenow.JPG",
+    "alt": "servicenow interns group photo",
+    "link": "https://www.servicenow.com/",
+    "linkText": "ServiceNow Web Page",
+    "bullets": [
+      "Enhancing data streaming platform on Instance Data Replication team for data synchronization across instances",
+      "Developing multi-threading processes in producer and consumer instances using Hermes Kafka message queues",
+      "Optimizing seeding performance by adding features for unlimited records"
+    ]
+  },
+  {
+    "category": "academia",
+    "title": "UCSD Computer Science and Engineering Department",
+    "role": "CSE Instructional Assistant: Sep 2023 - Present",
+    "imgSmall": "assets/cse-small.png",
+    "imgLarge": "assets/cse.png",
+    "alt": "ucsd cse logo",
+    "link": "https://cse.ucsd.edu/",
+    "linkText": "UCSD CSE",
+    "bullets": [
+      "Conducting 90 tutor hours per quarter for 300+ upper division class CSE 100: Advanced Data Structures",
+      "Led 40+ student lab sections weekly and assisted in 30 lectures for CSE 15L: Software Tools and Techniques",
+      "Facilitating learning in trees, graphs, stacks, queues, compression, hashing, Bash scripts, and runtime analysis"
+    ]
+  },
+  {
+    "category": "academia",
+    "title": "The Design Lab",
+    "role": "Research Intern: May 2023 - Oct 2023",
+    "imgSmall": "assets/designlab-small.png",
+    "imgLarge": "assets/designlab.png",
+    "alt": "design lab photo",
+    "link": "https://dl.acm.org/doi/10.1145/3640543.3645196",
+    "linkText": "Publication: Exploring LLM-Enhanced Templates for Idea Reflection",
+    "bullets": [
+      "Developed Figma whiteboard plugins embedded with structured design templates for 5 whys and competitive analysis",
+      "Built full-stack system using React, TypeScript, Flask, Firebase, GPT-3.5 API to deliver in-template AI feedback",
+      "Ran user studies with 57 participants and 3 iterated versions for ACM IUI 2024 HCI research conference"
+    ]
+  },
+  {
+    "category": "project",
+    "title": "Triton Software Engineering",
+    "role": "Engineering Manager: Oct 2022 - Present",
+    "imgSmall": "assets/tse-small.jpeg",
+    "imgLarge": "assets/tse.jpeg",
+    "alt": "tse group photo",
+    "link": "https://tritonse.github.io/projects/4flot-website-revamp/",
+    "linkText": "4FLOT Project",
+    "bullets": [
+      "Leading full-stack iOS mobile app team of 12 for nonprofit organization 4FLOT using Agile development cycle",
+      "Implementing dynamic SwiftUI views, state management, and service layers using MVVM architecture",
+      "Designing backend GET, POST, PATCH, DELETE routes with NodeJS Server and MongoDB database"
+    ]
+  },
+  {
+    "category": "project",
+    "title": "Association for Computing Machinery",
+    "role": "Backend Developer: Oct 2022 - Present",
+    "imgSmall": "assets/acm-small.JPG",
+    "imgLarge": "assets/acm.JPG",
+    "alt": "acm group photo",
+    "link": "https://tritonse.github.io/projects/4flot-website-revamp/",
+    "linkText": "ACM at UCSD",
+    "bullets": [
+      "Designed backend schemas for DiamondHacks portal with 3-layer abstracted API routes and PostgreSQL database",
+      "Launched Discord Kartana bot to automate the event hosting pipeline and sync with ACM's Notion calendar",
+      "Added REST API routes for GET, POST, PUT, DELETE with validation to update attendance and event data"
+    ]
+  },
+  {
+    "category": "project",
+    "title": "Hacktivists AI",
+    "role": "ML Developer: Oct 2022 - Jan 2023",
+    "imgSmall": "assets/hacktivists-small.png",
+    "imgLarge": "assets/hacktivists.png",
+    "alt": "hacktivists",
+    "link": "https://acmucsd.com/",
+    "linkText": "Hacktivists AI Project",
+    "bullets": [
+      "Predicted court case outcomes using KNN, Decision Trees, Random Forest, LightGBM, SVM, and Keras deep learning models",
+      "Used feature extraction and fine tuning techniques to apply existing models on supreme court case data",
+      "Presented final 0.95 accuracy in annual showcase symposium for 50+ student organization executives and professors"
+    ]
+  }
+]

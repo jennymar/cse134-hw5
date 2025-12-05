@@ -5,6 +5,8 @@
         <title>Experiences Page</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="style.css">
+        <script src="project-card.js" defer></script>
+        <script src="project-card-loading.js" defer></script>
     </head>
     <body>
         <header>
@@ -18,75 +20,46 @@
                 <li><a href="experiments.html">Experiments</a></li>
                 <li><a href="form-no-js.html">Form No JS</a></li>
                 <li><a href="form-with-js.html">Form With JS</a></li>
+                <li><a href="crud.html">CRUD</a></li>
             </ul>
             </nav>
         </header>
 
         <main>
             <h1>Work Experience</h1>
-            <h2>Industry</h2>
-            <section>
-                <article class="experience-item">
-                    <picture>
-                        <source srcset="assets/servicenow-small.JPG" media="(max-width: 700px)">
-                        <source srcset="assets/servicenow.JPG" media="(min-width: 701px)">
-                        <img src="assets/servicenow.JPG" alt="servicenow interns group photo" loading="lazy">
-                    </picture>
-                    <div class="experience-content">
-                        <h3>ServiceNow</h3>
-                        <p><i>Software Engineer Intern: Jun 2024 - Present</i></p>
-                        <ul>
-                            <li>Enhancing <strong>data streaming platform</strong> on Instance Data Replication team for <strong>data synchronization</strong> across instances.</li>
-                            <li>Developing multi-threading processes in producer and consumer instances using <strong>Hermes Kafka</strong> message queues.</li>
-                            <li>Optimizing seeding performance by adding features for <strong>unlimited records</strong> and multi-seeding functionality.</li>
-                        </ul>
-                    </div>
-                </article>
-            </section>
+            <div class="button-row">
+                <button id="load-local">Load Local</button>
+                <button id="load-remote">Load Remote</button>
+            </div>
 
+            <h2>Industry</h2>
+            <section id="cards-industry"></section>
 
             <h2>Academia</h2>
-            <section>
-                <article class="experience-item">
-                    <picture>
-                        <source srcset="assets/cse-small.png" media="(max-width: 700px)">
-                        <source srcset="assets/cse.png" media="(min-width: 701px)">
-                        <img src="assets/cse.png" alt="ucsd cse logo" loading="lazy">
-                    </picture>
-                    <div class="experience-content">
-                        <h3>UCSD Computer Science and Engineering Department</h3>
-                        <p><i>CSE Instructional Assistant: Sep 2023 - Present</i></p>
-                        <ul>
-                            <li>Conducting 90 tutor hours per quarter for 300+ upper division class <strong>CSE 100: Advanced Data Structures</strong></li>
-                            <li>Led <strong>40+ student lab sections</strong> weekly and assisted in 30 lectures for <strong>CSE 15L: Software Tools and Techniques</strong></li>
-                            <li>Facilitating learning in trees, graphs, stacks, queues, compression, hashing, Bash scripts, and runtime analysis</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="experience-item">
-                    <picture>
-                        <source srcset="assets/designlab-small.png" media="(max-width: 700px)">
-                        <source srcset="assets/designlab.png" media="(min-width: 701px)">
-                        <img src="assets/designlab.png" alt="design lab photo" loading="lazy">
-                    </picture>
-                    <div class="experience-content">
-                        <h3>The Design Lab</h3>
-                        <p><i>Research Intern: May 2023 - Oct 2023</i></p>
-                        <ul>
-                            <li>Developed Figma whiteboard plugins embedded with structured design templates for 5 whys and competitive analysis</li>
-                            <li>Built full-stack system using <strong>React, TypeScript, Flask, Firebase, GPT-3.5 API</strong> to deliver in-template AI feedback</li>
-                            <li>Ran user studies with <strong>57 participants</strong> and 3 iterated versions for <strong>ACM IUI 2024 HCI research conference</strong></li>
-                        </ul>
-                        View the <a href="https://www.kaggle.com/competitions/sorghum-id-fgvc-9/overview" target="_blank">related publication</a>
-                    </div>
-                </article>
-            </section>
+            <section id="cards-academia"></section>
         </main>
 
         <footer>
             <p>© 2025 Jenny M</p>
             <noscript><p>Some interactive features require JavaScript. Please enable JS.</p></noscript>
         </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+            if (!localStorage.getItem("experienceData")) {
+                console.log("Seeding localStorage from data.json...");
+                
+                fetch("data.json")
+                .then(r => r.json())
+                .then(data => {
+                    localStorage.setItem("experienceData", JSON.stringify(data));
+                    console.log("Initial seed complete.");
+                })
+                .catch(err => console.error("Failed to load data.json for initial seed:", err));
+            } else {
+                console.log("experienceData already exists — skipping seed.");
+            }
+            });
+        </script>
     </body>
 </html>

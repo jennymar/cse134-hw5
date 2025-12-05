@@ -1,0 +1,26 @@
+{
+  "experience": [
+    {
+      "category": "industry",
+      "title": "Software Engineering Intern",
+      "role": "Backend Developer",
+      "imgSmall": "img1-small.jpg",
+      "imgLarge": "img1-large.jpg",
+      "alt": "Backend intern",
+      "link": "https://example.com",
+      "linkText": "View",
+      "bullets": ["Maintained API services", "Improved DB performance"]
+    },
+    {
+      "category": "academia",
+      "title": "Research Assistant",
+      "role": "ML Researcher",
+      "imgSmall": "img2-small.jpg",
+      "imgLarge": "img2-large.jpg",
+      "alt": "Research position",
+      "link": "https://example.com",
+      "linkText": "Paper",
+      "bullets": ["Trained CNN models", "Published results"]
+    }
+  ]
+}

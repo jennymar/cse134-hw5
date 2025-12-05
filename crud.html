@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Experience (POST)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script src="crud.js" defer></script>
+
+  <style>
+    /* Make labels stack vertically */
+    main form label {
+      display: block;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    /* Make inputs and select fill available width and look neat */
+    main form input[type="text"],
+    main form select {
+      width: 100%;
+      max-width: 700px;
+      padding: 0.5rem 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-family: var(--font-body, Arial, sans-serif);
+      font-size: 1rem;
+    }
+
+    main form button[type="submit"] {
+      margin-top: 0.5rem;
+    }
+
+    main > section {
+        width: 100%;
+        max-width: 700px;  /* matches form max-width for consistency */
+    }
+
+
+    @media (max-width: 600px) {
+      main form input[type="text"],
+      main form select {
+        max-width: 100%;
+      }
+    }
+
+
+  </style>
+
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="experiences.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="experiments.html">Experiments</a></li>
+        <li><a href="form-no-js.html">Form No JS</a></li>
+        <li><a href="form-with-js.html">Form With JS</a></li>
+        <li><a href="crud.html">CRUD</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>CRUD Operations</h1>
+
+    <section>
+        <h2>Add Experience</h2>
+        <form id="add-form">
+            <label>
+            Category:
+            <select id="category">
+                <option value="industry">Industry</option>
+                <option value="academia">Academia</option>
+                <option value="academia">Project</option>
+            </select>
+            </label>
+
+            <label>Title: <input type="text" id="title" required></label>
+            <label>Role: <input type="text" id="role" required></label>
+            <label>Image Small URL: <input type="text" id="imgSmall"></label>
+            <label>Image Large URL: <input type="text" id="imgLarge"></label>
+            <label>Alt Text: <input type="text" id="alt"></label>
+            <label>Link: <input type="text" id="link"></label>
+            <label>Link Text: <input type="text" id="linkText"></label>
+            <label>Bullets (semicolon separated): <input type="text" id="bullets"></label>
+
+            <button type="submit">Add Experience</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Delete Experience</h2>
+        <form id="delete-form">
+            <label>
+            Choose experience to delete:
+            <select id="delete-select"></select>
+            </label>
+
+            <button type="submit">Delete</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Update Existing Experience</h2>
+        <form id="update-form">
+
+            <label>
+            Choose experience to update:
+            <select id="update-select"></select>
+            </label>
+
+            <label>
+            Category:
+            <select id="update-category">
+                <option value="industry">Industry</option>
+                <option value="academia">Academia</option>
+                <option value="project">Project</option>
+            </select>
+            </label>
+
+            <label>Title: <input type="text" id="update-title" required></label>
+            <label>Role: <input type="text" id="update-role" required></label>
+            <label>Image Small URL: <input type="text" id="update-imgSmall"></label>
+            <label>Image Large URL: <input type="text" id="update-imgLarge"></label>
+            <label>Alt Text: <input type="text" id="update-alt"></label>
+            <label>Link: <input type="text" id="update-link"></label>
+            <label>Link Text: <input type="text" id="update-linkText"></label>
+            <label>Bullets (semicolon separated): <input type="text" id="update-bullets"></label>
+
+            <button type="submit">Update Experience</button>
+        </form>
+    </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 Jenny M</p>
+        <noscript><p>Some interactive features require JavaScript. Please enable JS.</p></noscript>
+    </footer>
+</body>
+</html>

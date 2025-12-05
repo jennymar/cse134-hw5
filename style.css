@@ -347,8 +347,6 @@ travel-card p {
 }
 
 
-
-
 @media (max-width: 600px) {
   nav ul {
     flex-direction: column;   
