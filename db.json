@@ -8,7 +8,7 @@
       "imgLarge": "https://raw.githubusercontent.com/jennymar/cse134-hw5/refs/heads/main/assets/servicenow.JPG",
       "alt": "Backend intern",
       "link": "https://example.com",
-      "linkText": "View",
+      "linkText": "backend dev github",
       "bullets": ["Maintained API services", "Improved DB performance"]
     },
     {
@@ -19,8 +19,19 @@
       "imgLarge": "https://raw.githubusercontent.com/jennymar/cse134-hw5/refs/heads/main/assets/designlab.png",
       "alt": "Research position",
       "link": "https://example.com",
-      "linkText": "Paper",
+      "linkText": "research",
       "bullets": ["Trained CNN models", "Published results"]
+    }, 
+    {
+      "category": "project",
+      "title": "Triton Software Engineering",
+      "role": "Engineering Manager",
+      "imgSmall": "https://raw.githubusercontent.com/jennymar/cse134-hw5/refs/heads/main/assets/tse-small.jpeg",
+      "imgLarge": "https://raw.githubusercontent.com/jennymar/cse134-hw5/refs/heads/main/assets/tse.jpeg",
+      "alt": "tse group photo",
+      "link": "https://example.com",
+      "linkText": "TSE link to project",
+      "bullets": ["Full stack iOS mobile app dev", "CRUD operations"]
     }
   ]
 }

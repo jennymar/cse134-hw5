@@ -5,6 +5,40 @@
         <title>Personal Portfolio — Jenny Mar</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="style.css">
+        <style>
+            main {
+                background: var(--bg); 
+                color: var(--text);
+            }
+            :root {
+                --bg: #f7f7f7;
+                --card: #ffffff;
+                --text: #111827;
+                --muted: #6b7280;
+                --accent: #0077ff;
+                --error: #b91c1c;
+                --success: #0f8644;
+            }
+
+            [data-theme="dark"] {
+                --bg: #0b1220;
+                --card: #071027;
+                --text: #e6eef8;
+                --muted: #94a3b8;
+                --accent: #4ea8ff;
+                --error: #ff8a8a;
+                --success: #6ee7b7;
+            }
+            .theme-selector {
+                background: none;
+                border: 2px solid var(--accent);
+                color: var(--accent);
+                padding: 1rem 0.6rem;
+                border-radius: 6px;
+                cursor: pointer;
+                margin: 1rem;
+            }
+        </style>
     </head>
     <body id="home">
         <header>
@@ -15,15 +49,24 @@
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="experiments.html">Experiments</a></li>
+                <!-- <li><a href="experiments.html">Experiments</a></li>
                 <li><a href="form-no-js.html">Form No JS</a></li>
-                <li><a href="form-with-js.html">Form With JS</a></li>
+                <li><a href="form-with-js.html">Form With JS</a></li> -->
                 <li><a href="crud.html">CRUD</a></li>
             </ul>
             </nav>
         </header>
 
         <main>
+            <div id="theme-selector" class="theme-selector" style="margin-bottom: 1rem;">
+                <label for="themePick">Pick Theme and Colors:</label>
+                <select id="themePick">
+                    <option value="Light">Light Mode</option>
+                    <option value="Dark">Dark Mode</option>
+                    <option value="Purple">Purple Mode</option>
+                    <option value="Orange">Orange Mode</option>
+                </select>
+            </div>
             <section class="intro">
                 <picture>
                     <source srcset="assets/jennyheadshot-small.jpg" media="(max-width: 700px)">
@@ -48,5 +91,72 @@
             <p>made with &hearts; by jenny mar</p>
             <noscript><p>Some interactive features require JavaScript. Please enable JS.</p></noscript>
         </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+            if (!localStorage.getItem("experienceData")) {
+                console.log("Seeding localStorage from data.json...");
+                
+                fetch("data.json")
+                .then(r => r.json())
+                .then(data => {
+                    localStorage.setItem("experienceData", JSON.stringify(data));
+                    console.log("Initial seed complete.");
+                })
+                .catch(err => console.error("Failed to load data.json for initial seed:", err));
+            } else {
+                console.log("experienceData already exists — skipping seed.");
+            }
+            });
+
+            const themes = {
+                Light: {
+                    '--bg': '#f7f7f7',
+                    '--card': '#ffffff',
+                    '--text': '#111827',
+                    '--font': 'sans-serif'
+                },
+                Dark: {
+                    '--bg': '#0b1220',
+                    '--card': '#071027',
+                    '--text': '#e6eef8',
+                    '--font': 'sans-serif'
+                },
+                Purple: {
+                    '--bg': '#f3e8ff',        
+                    '--card': '#d8b4fe',   
+                    '--text': '#4c1d95', 
+                    '--font': 'Georgia, serif'
+                },
+                Orange: {
+                    '--bg': '#fff7ed',
+                    '--card': '#fed7aa',
+                    '--text': '#9a3412', 
+                    '--font': 'Verdana, sans-serif'
+                }
+            };
+
+            const themePick = document.getElementById('themePick');
+
+            function applyCustomTheme(themeName) {
+                const theme = themes[themeName];
+                if (!theme) return;
+
+                Object.keys(theme).forEach(variable => {
+                    document.documentElement.style.setProperty(variable, theme[variable]);
+                });
+                localStorage.setItem('site-theme', themeName);
+            }
+
+            if (themePick) {
+                const savedTheme = localStorage.getItem('site-theme') || 'Light';
+                themePick.value = savedTheme;
+                applyCustomTheme(savedTheme);
+
+                themePick.addEventListener('change', () => {
+                    applyCustomTheme(themePick.value);
+                });
+            }
+        </script>
     </body>
 </html>
